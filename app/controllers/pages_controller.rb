@@ -6,4 +6,8 @@ class PagesController < ApplicationController
   def about
     # render 'about.html.erb'
   end
+
+  def shrstha2
+    # render 'shrstha2.html.erb'
+  end
 end
