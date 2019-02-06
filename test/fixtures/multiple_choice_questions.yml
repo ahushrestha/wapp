@@ -16,17 +16,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question: MyString
-  answer: MyString
-  distractor_1: MyString
-  distractor_2: MyString
-  distractor_3: MyString
-  distractor_4: MyString
+  question: What does the M in MVC stand for?
+  answer: Model
+  distractor_1: Mode
+  distractor_2: Min
+  distractor_3: Moon
+  distractor_4: Mine
 
 two:
-  question: MyString
-  answer: MyString
-  distractor_1: MyString
-  distractor_2: MyString
-  distractor_3: MyString
-  distractor_4: MyString
+  question: What does the V in MVC stand for?
+  answer: View
+  distractor_1: Vis
+  distractor_2: Vice
+  distractor_3: Vast
+  distractor_4: Vehicle
