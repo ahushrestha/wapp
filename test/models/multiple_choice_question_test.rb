@@ -24,4 +24,10 @@ class MultipleChoiceQuestionTest < ActiveSupport::TestCase
     one = multiple_choice_questions(:one)
     assert one.valid?
   end
+
+  test "question must be present" do
+    one = multiple_choice_questions(:one)
+    one.question = nil
+    assert_not one.valid?
+  end
 end
