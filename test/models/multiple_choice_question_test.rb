@@ -19,4 +19,9 @@ class MultipleChoiceQuestionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+  test "multiple choice question should be valid" do
+    one = multiple_choice_questions(:one)
+    assert one.valid?
+  end
 end
