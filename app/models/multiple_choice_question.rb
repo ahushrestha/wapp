@@ -14,4 +14,7 @@
 #
 
 class MultipleChoiceQuestion < ApplicationRecord
+    validates :question, presence: true
+    validates :answer, presence: true
+    validates :distractor_1, presence: true
 end
