@@ -33,4 +33,20 @@ class MultipleChoiceQuestionsController < ApplicationController
         @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
         # render 'multiple_choice_questions/show.html.erb'
     end
+
+    def new
+        @multiple_choice_question = MultipleChoiceQuestion.new
+        #render 'multiple_choice_questions/new.html.erb'
+    end
+
+    def create
+      @multiple_choice_question = MultipleChoiceQuestion.new(params.require(:multiple_choice_question).permit(:question, :answer, :distractor_1, :distractor_2, :distractor_3, :distractor_4))
+
+      if @multiple_choice_question.save
+        redirect_to multiple_choice_question_url(@multiple_choice_question), notice: 'Multiple choice question successfully created.'
+      else
+        flash.now[:alert] = 'Error! Unable to create multiple choice question.'
+        render :new
+      end
+    end
 end

@@ -1,54 +1,54 @@
 
 <main role="main" class="container">
 
-<h1>Answer This Question</h1>
+  <h1>Answer This Question</h1>
 
-<p>
-  <%= @multiple_choice_question.question %>
-</p>
+  <p>
+    <%= @multiple_choice_question.question %>
+  </p>
 
-<%= form_tag do %>
+  <%= form_tag do %>
 
-  <%
-    order = [0, 1, 2, 3, 4].shuffle
-    order.each do |a|
-  %>
+    <%
+      order = [0, 1, 2, 3, 4].shuffle
+      order.each do |a|
+    %>
 
-    <% if a == 0 %>
-    <p>
-        <%= radio_button_tag(:guess, '0') %>
-        <%= label_tag(:guess_0, @multiple_choice_question.answer) %>
-    </p>
+      <% if a == 0 %>
+      <p>
+          <%= radio_button_tag(:guess, '0') %>
+          <%= label_tag(:guess_0, @multiple_choice_question.answer) %>
+      </p>
 
-    <% elsif a == 1 %>
-    <p>
-        <%= radio_button_tag(:guess, '1') %>
-        <%= label_tag(:guess_1, @multiple_choice_question.distractor_1) %>
-    </p>
+      <% elsif a == 1 %>
+      <p>
+          <%= radio_button_tag(:guess, '1') %>
+          <%= label_tag(:guess_1, @multiple_choice_question.distractor_1) %>
+      </p>
 
-    <% elsif a == 2 %>
-    <p>
-        <%= radio_button_tag(:guess, '2') %>
-        <%= label_tag(:guess_2, @multiple_choice_question.distractor_2) %>
-    </p>
+      <% elsif a == 2 %>
+      <p>
+          <%= radio_button_tag(:guess, '2') %>
+          <%= label_tag(:guess_2, @multiple_choice_question.distractor_2) %>
+      </p>
 
-    <% elsif a == 3 %>
-    <p>
-        <%= radio_button_tag(:guess, '3') %>
-        <%= label_tag(:guess_3, @multiple_choice_question.distractor_3) %>
-    </p>
+      <% elsif a == 3 %>
+      <p>
+          <%= radio_button_tag(:guess, '3') %>
+          <%= label_tag(:guess_3, @multiple_choice_question.distractor_3) %>
+      </p>
 
-    <% elsif a == 4 %>
-    <p>
-        <%= radio_button_tag(:guess, '4') %>
-        <%= label_tag(:guess_4, @multiple_choice_question.distractor_4) %>
-    </p>
+      <% elsif a == 4 %>
+      <p>
+          <%= radio_button_tag(:guess, '4') %>
+          <%= label_tag(:guess_4, @multiple_choice_question.distractor_4) %>
+      </p>
+      <% end %>
     <% end %>
+
+    <%= submit_tag("Submit Answer") %>
+
+
   <% end %>
-
-  <%= submit_tag("Submit Answer") %>
-
-
-<% end %>
 
 </main><!-- /.container -->
