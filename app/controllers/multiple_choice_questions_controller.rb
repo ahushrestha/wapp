@@ -64,4 +64,11 @@ class MultipleChoiceQuestionsController < ApplicationController
           render :edit
         end
     end
+
+    def destroy
+        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        @multiple_choice_question.destroy
+        redirect_to multiple_choice_questions_url, notice: 'Multiple choice question was successfully destroyed.'
+    end
+
 end

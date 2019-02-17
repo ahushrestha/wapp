@@ -26,6 +26,7 @@
           <td>
             <%= link_to 'Show', multiple_choice_question_path(question) %>
             <%= link_to 'Edit', edit_multiple_choice_question_path(question) %>
+            <%= link_to 'Destroy', multiple_choice_question_path(question), method: :delete %>
           </td>
         </tr>
       <% end %>

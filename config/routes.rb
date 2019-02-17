@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get 'multiple_choice_questions/:id', to: 'multiple_choice_questions#show', as: 'multiple_choice_question'
   patch 'multiple_choice_questions/:id', to: 'multiple_choice_questions#update'
   put 'multiple_choice_questions/:id', to: 'multiple_choice_questions#update'
+  delete 'multiple_choice_questions/:id', to: 'multiple_choice_questions#destroy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
