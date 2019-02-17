@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
   def home
+    question_id = MultipleChoiceQuestion.all.pluck(:id).sample
+    # Ahuti: MultipleChoiceQuestion.all -> array of all records
+    # Ahuti: pluck(:id) -> we want just id, not all records
+    # Ahuti: sample -> randomly choose one
+
+    @multiple_choice_question = MultipleChoiceQuestion.find(question_id)
     # render 'home.html.erb'
   end
 
