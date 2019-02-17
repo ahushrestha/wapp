@@ -23,4 +23,9 @@ class MultipleChoiceQuestionsController < ApplicationController
             redirect_to home_url, alert: "Error: Invalid answer."
         end
     end
+
+    def index
+        @multiple_choice_questions = MultipleChoiceQuestion.all 
+        # render 'multiple_choice_questions/index.html.erb'
+    end
 end
