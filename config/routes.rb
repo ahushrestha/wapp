@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'multiple_choice_questions', to: 'multiple_choice_questions#index', as: 'multiple_choice_questions'
   post 'multiple_choice_questions', to: 'multiple_choice_questions#create'
   get 'multiple_choice_questions/new', to: 'multiple_choice_questions#new', as: 'new_multiple_choice_question'
+  get 'multiple_choice_questions/:id/edit', to: 'multiple_choice_questions#edit', as: 'edit_multiple_choice_question'
   get 'multiple_choice_questions/:id', to: 'multiple_choice_questions#show', as: 'multiple_choice_question'
-  
+  patch 'multiple_choice_questions/:id', to: 'multiple_choice_questions#update'
+  put 'multiple_choice_questions/:id', to: 'multiple_choice_questions#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -23,7 +23,10 @@
           <td><%= question.distractor_2%></td>
           <td><%= question.distractor_3%></td>
           <td><%= question.distractor_4%></td>
-          <td><%= link_to 'Show', multiple_choice_question_path(question) %></td>
+          <td>
+            <%= link_to 'Show', multiple_choice_question_path(question) %>
+            <%= link_to 'Edit', edit_multiple_choice_question_path(question) %>
+          </td>
         </tr>
       <% end %>
       

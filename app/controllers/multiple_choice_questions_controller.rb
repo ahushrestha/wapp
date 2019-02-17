@@ -49,4 +49,19 @@ class MultipleChoiceQuestionsController < ApplicationController
         render :new
       end
     end
+
+    def edit
+        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        # render 'multiple_choice_questions/edit.html.erb'
+    end
+
+    def update
+        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        if @multiple_choice_question.update(params.require(:multiple_choice_question).permit(:question, :answer, :distractor_1, :distractor_2, :distractor_3, :distractor_4))
+          redirect_to multiple_choice_question_url(@multiple_choice_question), notice: 'Multiple choice question successfully updated.'
+        else
+          flash.now[:alert] = 'Error! Unable to update multiple choice question.'
+          render :edit
+        end
+    end
 end
