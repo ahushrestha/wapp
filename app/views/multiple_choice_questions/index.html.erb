@@ -11,6 +11,7 @@
       <th scope="col">Distractor 2</th>
       <th scope="col">Distractor 3</th>
       <th scope="col">Distractor 4</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= question.distractor_2%></td>
         <td><%= question.distractor_3%></td>
         <td><%= question.distractor_4%></td>
+        <td><%= link_to 'Show', multiple_choice_question_path(question) %></td>
       </tr>
     <% end %>
     

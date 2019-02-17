@@ -28,4 +28,9 @@ class MultipleChoiceQuestionsController < ApplicationController
         @multiple_choice_questions = MultipleChoiceQuestion.all 
         # render 'multiple_choice_questions/index.html.erb'
     end
+
+    def show
+        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        # render 'multiple_choice_questions/show.html.erb'
+    end
 end
