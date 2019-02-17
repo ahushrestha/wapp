@@ -3,31 +3,73 @@
     <div class="field">
       <%= form.label :question %>
       <%= form.text_field :question, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:question).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:question).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
       <%= form.label :answer %>
       <%= form.text_field :answer, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:answer).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:answer).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
       <%= form.label :distractor_1 %>
       <%= form.text_field :distractor_1, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:distractor_1).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:distractor_1).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
       <%= form.label :distractor_2 %>
       <%= form.text_field :distractor_2, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:distractor_2).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:distractor_2).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
       <%= form.label :distractor_3 %>
       <%= form.text_field :distractor_3, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:distractor_3).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:distractor_3).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
       <%= form.label :distractor_4 %>
       <%= form.text_field :distractor_4, class: 'form-control' %>
+      <% if multiple_choice_question.errors.full_messages_for(:distractor_4).any? %>
+        <div class="invalid-feedback">
+          <% multiple_choice_question.errors.full_messages_for(:distractor_4).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
     </div>
 
     <div class="actions">
