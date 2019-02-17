@@ -1,41 +1,7 @@
 <main role="main" class="container">
   <h1>New Multiple Choice Question</h1>
 
-  <%= form_with model: @multiple_choice_question, local: true do |form| %>
-    <div class="field">
-      <%= form.label :question %>
-      <%= form.text_field :question, class: 'form-control' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :answer %>
-      <%= form.text_field :answer, class: 'form-control' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :distractor_1 %>
-      <%= form.text_field :distractor_1, class: 'form-control' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :distractor_2 %>
-      <%= form.text_field :distractor_2, class: 'form-control' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :distractor_3 %>
-      <%= form.text_field :distractor_3, class: 'form-control' %>
-    </div>
-
-    <div class="field">
-      <%= form.label :distractor_4 %>
-      <%= form.text_field :distractor_4, class: 'form-control' %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit 'Create Multiple Choice Question', class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+  <%= render 'form', multiple_choice_question: @multiple_choice_question %>
 
   <p>
     <%= link_to 'Back', multiple_choice_questions_path %>
