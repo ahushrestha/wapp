@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: 'about'
   get 'shrstha2', to: 'pages#shrstha2', as: 'shrstha2'
   get 'multiple_choice_questions/:id/ask', to: 'multiple_choice_questions#ask', as: 'ask_multiple_choice_question'
+  post 'multiple_choice_questions/:id/ask', to: 'multiple_choice_questions#check_answer'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
