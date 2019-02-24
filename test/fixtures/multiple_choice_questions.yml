@@ -27,6 +27,7 @@ one:
   distractor_2: Min
   distractor_3: Moon
   distractor_4: Mine
+  quiz: one
 
 two:
   question: What does the V in MVC stand for?
@@ -35,3 +36,4 @@ two:
   distractor_2: Vice
   distractor_3: Vast
   distractor_4: Vehicle
+  quiz: one

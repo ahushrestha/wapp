@@ -35,4 +35,10 @@ class MultipleChoiceQuestionTest < ActiveSupport::TestCase
     one.question = nil
     assert_not one.valid?
   end
+
+  test "multiple choice question must have parent quiz" do
+    one = multiple_choice_questions(:one)
+    one.quiz_id = nil
+    assert_not one.valid?
+  end
 end
