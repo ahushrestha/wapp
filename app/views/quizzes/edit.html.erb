@@ -4,8 +4,46 @@
 <main role="main" class="container">
   <h1>Edit Quiz</h1>
 
+  <h2>Quiz Meta-Data</h2>
+
   <%= render 'form', quiz: @quiz %>
 
+  <h2 stylel="margin-top: 1.5rem">Quiz Questions</h2>
+
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Question</th>
+        <th scope="col">Answer</th>
+        <th scope="col">Distractor 1</th>
+        <th scope="col">Distractor 2</th>
+        <th scope="col">Distractor 3</th>
+        <th scope="col">Distractor 4</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quiz.questions.each do |question| %>
+        <tr>
+          <td><%= question.question%></td>
+          <td><%= question.answer%></td>
+          <td><%= question.distractor_1%></td>
+          <td><%= question.distractor_2%></td>
+          <td><%= question.distractor_3%></td>
+          <td><%= question.distractor_4%></td>
+          <td>
+            <%= link_to 'Edit', edit_multiple_choice_question_path(question) %>
+            <%= link_to 'Destroy', multiple_choice_question_path(question), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+
+  <p>
+    <%= link_to 'New Multiple Choice Question', new_multiple_choice_question_path(@quiz) %>
+  </p>
   <p>
     <%= link_to 'Back', quizzes_path %>
   </p>

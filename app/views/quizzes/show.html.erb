@@ -9,6 +9,33 @@
     <b>Description:</b> <%= @quiz.description%>
     </p>
 
+    <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Question</th>
+        <th scope="col">Answer</th>
+        <th scope="col">Distractor 1</th>
+        <th scope="col">Distractor 2</th>
+        <th scope="col">Distractor 3</th>
+        <th scope="col">Distractor 4</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quiz.questions.each do |question| %>
+        <tr>
+          <td><%= question.question%></td>
+          <td><%= question.answer%></td>
+          <td><%= question.distractor_1%></td>
+          <td><%= question.distractor_2%></td>
+          <td><%= question.distractor_3%></td>
+          <td><%= question.distractor_4%></td>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+
     <p>
     <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
     <%= link_to 'Back', quizzes_path %>

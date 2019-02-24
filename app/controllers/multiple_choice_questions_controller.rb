@@ -24,26 +24,31 @@ class MultipleChoiceQuestionsController < ApplicationController
         end
     end
 
-    def index
-        @multiple_choice_questions = MultipleChoiceQuestion.all 
-        # render 'multiple_choice_questions/index.html.erb'
-    end
-
-    def show
-        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
-        # render 'multiple_choice_questions/show.html.erb'
-    end
+    # def show
+    #     @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+    #     # render 'multiple_choice_questions/show.html.erb'
+    # end
 
     def new
+        begin
+            @quiz = Quiz.find(params[:quiz_id])
+          rescue
+            redirect_to quizzes_url, alert: 'Error: Quiz not found'
+          end
         @multiple_choice_question = MultipleChoiceQuestion.new
         #render 'multiple_choice_questions/new.html.erb'
     end
 
     def create
+      begin
+        @quiz = Quiz.find(params[:quiz_id])
+      rescue
+        redirect_to quizzes_url, alert: 'Error: Quiz not found'
+        end
       @multiple_choice_question = MultipleChoiceQuestion.new(params.require(:multiple_choice_question).permit(:question, :answer, :distractor_1, :distractor_2, :distractor_3, :distractor_4))
-
-      if @multiple_choice_question.save
-        redirect_to multiple_choice_question_url(@multiple_choice_question), notice: 'Multiple choice question successfully created.'
+      @quiz.questions << @multiple_choice_question 
+      if @quiz.save
+        redirect_to quiz_url(@quiz), notice: 'Multiple choice question successfully created.'
       else
         flash.now[:alert] = 'Error! Unable to create multiple choice question.'
         render :new
@@ -59,12 +64,12 @@ class MultipleChoiceQuestionsController < ApplicationController
         begin
             @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
           rescue
-            redirect_to multiple_choice_question, alert: 'Error: Multiple choice question not found'
+            redirect_to quizzes_url, alert: 'Error: Multiple choice question not found'
           end
 
         @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
         if @multiple_choice_question.update(params.require(:multiple_choice_question).permit(:question, :answer, :distractor_1, :distractor_2, :distractor_3, :distractor_4))
-          redirect_to multiple_choice_question_url(@multiple_choice_question), notice: 'Multiple choice question successfully updated.'
+          redirect_to quiz_url(@multiple_choice_question.quiz), notice: 'Multiple choice question successfully updated.'
         else
           flash.now[:alert] = 'Error! Unable to update multiple choice question.'
           render :edit
@@ -73,12 +78,13 @@ class MultipleChoiceQuestionsController < ApplicationController
 
     def destroy
         begin
-            @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
-          rescue
-            redirect_to multiple_choice_question, alert: 'Error: Multiple choice question not found'
-          end
+          @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        rescue
+          redirect_to quizzes_url, alert: 'Error: Multiple choice question not found'
+        end
+        @quiz = @multiple_choice_question.quiz
         @multiple_choice_question.destroy
-        redirect_to multiple_choice_questions_url, notice: 'Multiple choice question was successfully destroyed.'
+        redirect_to quiz_url(@quiz), notice: 'Multiple choice question was successfully destroyed.'
     end
 
 end

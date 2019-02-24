@@ -1,5 +1,7 @@
 
 <%= form_with model: multiple_choice_question, local: true do |form| %>
+    <%= hidden_field_tag :quiz_id, quiz_id  %>
+    
     <div class="field">
       <%= form.label :question %>
       <%= form.text_field :question, class: 'form-control' %>
