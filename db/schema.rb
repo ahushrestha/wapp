@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_151517) do
+ActiveRecord::Schema.define(version: 2019_02_24_012156) do
 
   create_table "multiple_choice_questions", force: :cascade do |t|
     t.string "question"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_02_05_151517) do
     t.string "distractor_2"
     t.string "distractor_3"
     t.string "distractor_4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quiz_id"
+    t.index ["quiz_id"], name: "index_multiple_choice_questions_on_quiz_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
