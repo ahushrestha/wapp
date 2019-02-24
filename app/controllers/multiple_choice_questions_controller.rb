@@ -16,11 +16,11 @@ class MultipleChoiceQuestionsController < ApplicationController
         end
 
         if params[:guess] && params[:guess] == '0'
-            redirect_to home_url, notice: "Right! #{@multiple_choice_question.answer} was the correct answer."
+            redirect_to quiz_home_url(@multiple_choice_question.quiz), notice: "Right! #{@multiple_choice_question.answer} was the correct answer."
         elsif params[:guess] && ['1', '2', '3', '4'].include?(params[:guess])
-            redirect_to home_url, alert: "Wrong! #{@multiple_choice_question.answer} was the correct answer."
+            redirect_to quiz_home_url(@multiple_choice_question.quiz), alert: "Wrong! #{@multiple_choice_question.answer} was the correct answer."
         else
-            redirect_to home_url, alert: "Error: Invalid answer."
+            redirect_to quiz_home_url(@multiple_choice_question.quiz), alert: "Error: Invalid answer."
         end
     end
 

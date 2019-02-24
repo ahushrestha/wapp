@@ -27,19 +27,19 @@
           <%= label_tag(:guess_1, @multiple_choice_question.distractor_1) %>
       </p>
 
-      <% elsif a == 2 %>
+      <% elsif a == 2 && @multiple_choice_question.distractor_2 %>
       <p>
           <%= radio_button_tag(:guess, '2') %>
           <%= label_tag(:guess_2, @multiple_choice_question.distractor_2) %>
       </p>
 
-      <% elsif a == 3 %>
+      <% elsif a == 3 && @multiple_choice_question.distractor_3 %>
       <p>
           <%= radio_button_tag(:guess, '3') %>
           <%= label_tag(:guess_3, @multiple_choice_question.distractor_3) %>
       </p>
 
-      <% elsif a == 4 %>
+      <% elsif a == 4 && @multiple_choice_question.distractor_4 %>
       <p>
           <%= radio_button_tag(:guess, '4') %>
           <%= label_tag(:guess_4, @multiple_choice_question.distractor_4) %>

@@ -1,0 +1,13 @@
+<% provide(:title, 'Quiz') %>
+
+<main role="main" class="container">
+
+  <h1>Quiz: <%= @quiz.title %></h1>
+
+  <p>
+    <%= link_to 'Answer a randomly selected question', ask_multiple_choice_question_path(@question)%>
+  </p>
+
+
+</main><!-- /.container -->
+

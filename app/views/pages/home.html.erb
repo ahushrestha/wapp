@@ -5,9 +5,17 @@
   <h1>Welcome to Wapp, the Quizzing App!</h1>
 
   <p>
-    <%= link_to 'Answer a randomly selected question', ask_multiple_choice_question_path(@multiple_choice_question)%>
+    Choose a quiz to take:
   </p>
 
+  <ul>
+    <% @quizzes.each do |quiz| %>
+      <li>
+        <%= link_to quiz.title, quiz_home_path(quiz) %>:
+        <%= quiz.description %>
+      </li>
+    <% end %>
+  </ul>
 
 </main><!-- /.container -->
 
