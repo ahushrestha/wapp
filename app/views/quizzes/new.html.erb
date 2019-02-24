@@ -1,0 +1,14 @@
+
+<% provide(:title, 'New Quiz') %>
+
+<main role="main" class="container">
+  <h1>New Quiz</h1>
+
+  <%= render 'form', quiz: @quiz %>
+
+  <p>
+    <%= link_to 'Back', quizzes_path %>
+  </p>
+
+
+</main><!-- /.container -->

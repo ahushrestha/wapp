@@ -17,6 +17,15 @@ Rails.application.routes.draw do
   delete 'multiple_choice_questions/:id', to: 'multiple_choice_questions#destroy'
 
   get 'quizzes/:id/home', to: 'quizzes#home', as: 'quiz_home'
+  get 'quizzes', to: 'quizzes#index', as: 'quizzes'
+  post 'quizzes', to: 'quizzes#create'
+  get 'quizzes/new', to: 'quizzes#new', as: 'new_quiz'
+  get 'quizzes/:id/edit', to: 'quizzes#edit', as: 'edit_quiz'
+  get 'quizzes/:id', to: 'quizzes#show', as: 'quiz'
+  put 'quizzes/:id', to: 'quizzes#update'
+  patch 'quizzes/:id', to: 'quizzes#update'
+  delete 'quizzes/:id', to: 'quizzes#destroy'
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

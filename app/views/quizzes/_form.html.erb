@@ -1,0 +1,32 @@
+
+
+<%= form_with model: quiz, local: true do |form| %>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+      <% if quiz.errors.full_messages_for(:title).any? %>
+        <div class="invalid-feedback">
+          <% quiz.errors.full_messages_for(:title).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description, class: 'form-control' %>
+      <% if quiz.errors.full_messages_for(:description).any? %>
+        <div class="invalid-feedback">
+          <% quia.errors.full_messages_for(:description).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>    
+        </div>
+      <% end %>
+    </div>
+
+    
+    <div class="actions">
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    </div>
+  <% end %>

@@ -56,6 +56,12 @@ class MultipleChoiceQuestionsController < ApplicationController
     end
 
     def update
+        begin
+            @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+          rescue
+            redirect_to multiple_choice_question, alert: 'Error: Multiple choice question not found'
+          end
+
         @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
         if @multiple_choice_question.update(params.require(:multiple_choice_question).permit(:question, :answer, :distractor_1, :distractor_2, :distractor_3, :distractor_4))
           redirect_to multiple_choice_question_url(@multiple_choice_question), notice: 'Multiple choice question successfully updated.'
@@ -66,7 +72,11 @@ class MultipleChoiceQuestionsController < ApplicationController
     end
 
     def destroy
-        @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+        begin
+            @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
+          rescue
+            redirect_to multiple_choice_question, alert: 'Error: Multiple choice question not found'
+          end
         @multiple_choice_question.destroy
         redirect_to multiple_choice_questions_url, notice: 'Multiple choice question was successfully destroyed.'
     end

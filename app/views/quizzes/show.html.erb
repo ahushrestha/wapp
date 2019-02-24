@@ -1,0 +1,16 @@
+<% provide(:title, 'Show Quiz') %>
+
+<main role="main" class="container">
+    <p>
+    <b>Title:</b> <%= @quiz.title%>
+    </p>
+
+    <p>
+    <b>Description:</b> <%= @quiz.description%>
+    </p>
+
+    <p>
+    <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+    <%= link_to 'Back', quizzes_path %>
+    </p>
+</main><!-- /.container -->
