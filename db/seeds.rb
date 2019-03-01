@@ -23,3 +23,9 @@ quiz_3.questions.build(question: 'T or F? The * multiplicity means 1 or more.', 
 quiz_3.questions.build(question: 'T or F? Associations are demoted with boxes in class diagrams.', answer: 'F', distractor_1: 'T')
 quiz_3.questions.build(question: 'T or F? the 1 multiplicity means exactly 1.', answer: 'T', distractor_1: 'F')
 quiz_3.save!
+
+user_1 = User.new(email: 'user1@email.com', password: 'dddddd')
+user_1.save!
+
+user_2 = User.new(email: 'user2@email.com', password: 'dddddd')
+user_2.save!
