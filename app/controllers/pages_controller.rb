@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :about, :shrstha2]
+
   def home
     @quizzes = Quiz.all
     # @multiple_choice_question = MultipleChoiceQuestion.find(question_id)

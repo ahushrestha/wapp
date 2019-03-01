@@ -1,4 +1,6 @@
 class MultipleChoiceQuestionsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:ask, :check_answer]
     def ask
         begin
             @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
