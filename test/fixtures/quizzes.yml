@@ -19,7 +19,9 @@
 one:
   title: Rails MVC
   description: Rails MVC blah blah blah
+  owner: one
 
 two:
   title: Git and GitHub
   description: Git and GitHub blah blah blah
+  owner: one
